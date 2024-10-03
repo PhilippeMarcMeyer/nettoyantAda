@@ -1,0 +1,107 @@
+body {
+    font-family: "Noto sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+
+textarea#adaFiends{
+    font-size: 14px;
+    border: 1px solid rgba(128, 128, 128, 1);
+    background-color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7em;
+    outline: none;
+    resize: none;
+    width: 70%;
+    height: 200px;
+    overflow-y: auto;
+    font-family :"Noto sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.zone{
+    min-height : 252px;
+}
+
+.zone.chosen{
+    display : block;
+}
+
+.menu-zones span {
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom:none;
+    text-align: center;
+    display: inline-block;
+    margin-right: 6px;
+    width : 40px;
+}
+
+.menu-zones span.chosen{
+    color:black;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.zone-wrapper h2{
+    margin-bottom : 16px;
+}
+
+.zone-wrapper i {
+    margin-left: 20px;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 6px;
+}
+
+#ext-version {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+.container {
+    width: 520px;
+    text-align: center;
+    border: 3px solid #000;
+    background: linear-gradient(#25374d, #142331);
+    padding: 4px 4px 28px 4px;
+    border-radius: 4px;
+    color: white;
+}
+
+h2{
+    margin: 0 0 10px 0;
+}
+
+.sub {
+    margin-top: 10px;
+}
+
+.btn-wrapper-left{
+    display : inline-block;
+    width: 30%;
+    margin : 24px 0 10px 50px;
+}
+
+.btn-wrapper-right{
+    display : inline-block;
+    width: 30%;
+    margin : 24px 50px 10px 0;
+}
+
+.btn-wrapper button{
+    background-color: rgb(19, 18, 39);
+    color:white;
+    padding : 8px 40px 8px 40px;
+    border : 1px solid white;
+    border-radius: 10px;
+    width : 120px;
+}
+
+
+

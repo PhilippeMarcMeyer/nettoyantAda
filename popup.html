@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Preferences</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+	<div class="container" id="colorized-zone" style="background: linear-gradient(hsl(213,35%,22%),hsl(209,42%,14%));">
+		<div class="zone chosen" id="friends-zone">
+			<div class="zone-wrapper">
+				<h2><br/>identifiant et nom des auteurs à cacher, un par ligne<br/>identifiant;nom</h2>
+				<textarea id="adaFiends"></textarea>
+			</div>
+		</div>
+		<div class="btn-wrapper btn-wrapper-left">
+			<Button class="btn-left" id="cancelPopUp">Cancel</Button>
+		</div>	
+		<div class="btn-wrapper btn-wrapper-right">
+			<Button class="btn-right" id="closePopUp">OK</Button>
+		</div>
+	</div>
+
+	<script src="popup.js"></script>
+</body>
