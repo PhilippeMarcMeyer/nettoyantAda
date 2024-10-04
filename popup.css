@@ -6,10 +6,21 @@ a:link {
     text-decoration: none;
 }
 
+.main-icon{
+    position:absolute;
+    left:12px;
+    top:12px;
+}
 
+.annotation{
+    position:absolute;
+    left:12px;
+    bottom:12px;
+}
 
 textarea#adaFiends{
     font-size: 14px;
+    margin-top : 10px;
     border: 1px solid rgba(128, 128, 128, 1);
     background-color: rgba(255, 255, 255, 0.9);
     line-height: 1.7em;
@@ -48,6 +59,7 @@ textarea#adaFiends{
 
 .zone-wrapper h2{
     margin-bottom : 16px;
+    padding-top : 20px;
 }
 
 .zone-wrapper i {
@@ -97,7 +109,7 @@ h2{
 .btn-wrapper button{
     background-color: rgb(19, 18, 39);
     color:white;
-    padding : 8px 40px 8px 40px;
+    padding : 8px 30px 8px 30px;
     border : 1px solid white;
     border-radius: 10px;
     width : 120px;

@@ -11,18 +11,21 @@
 </head>
 <body>
 	<div class="container" id="colorized-zone" style="background: linear-gradient(hsl(213,35%,22%),hsl(209,42%,14%));">
+		<img class="main-icon" src="./icons/ada-48.png"/>
 		<div class="zone chosen" id="friends-zone">
 			<div class="zone-wrapper">
-				<h2><br/>identifiant et nom des auteurs à cacher, un par ligne<br/>identifiant;nom</h2>
+				<h2>Nettoyant AdA</h2>
+				<div class="sub">identifiant et nom des auteurs à cacher, un par ligne *<br/>identifiant;nom</div>
 				<textarea id="adaFiends"></textarea>
 			</div>
 		</div>
 		<div class="btn-wrapper btn-wrapper-left">
-			<Button class="btn-left" id="cancelPopUp">Cancel</Button>
+			<Button class="btn-left" id="cancelPopUp">Annuler</Button>
 		</div>	
 		<div class="btn-wrapper btn-wrapper-right">
-			<Button class="btn-right" id="closePopUp">OK</Button>
+			<Button class="btn-right" id="closePopUp">Enregistrer</Button>
 		</div>
+		<div class="annotation">(*) numéro du compte point-virgule nom d'auteur. ex : 107557083;laurie.graillat</div>
 	</div>
 
 	<script src="popup.js"></script>
