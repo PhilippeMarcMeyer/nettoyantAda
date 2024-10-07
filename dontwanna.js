@@ -2,6 +2,7 @@ const launchObserver = (fiends,fiendNames) => {
     const observer = new MutationObserver((mutations) => {
         filterFiends(fiends, 'a.user', 'div.event')
         filterFiends(fiends, 'a.author', 'div.comment');
+        filterChallenges(fiends, 'a', 'div.segment','div');
         filterFiendsByName(fiendNames)
     });
     observer.observe(document, { childList: true, subtree: true, childList: true });
@@ -14,6 +15,7 @@ const init = (fiends, fiendNames) => {
     filterFiends(fiends, 'a.user', 'div.event')
     filterFiends(fiends, 'a.author', 'div.comment');
     filterFiendsByName(fiendNames)
+    filterChallenges(fiends, 'a', 'div.segment','div');
     launchObserver(fiends, fiendNames);
 };
 
@@ -73,4 +75,32 @@ function filterFiendsByName(fiends) {
             }
         });
 }
+
+function filterChallenges(fiends, elemToFind, childOfElementTohide, elemToHide) {
+    if (window.location.pathname !== '/defis') return;
+    const elementList = content.querySelectorAll(elemToFind)
+    elementList
+        .forEach((x) => {
+            let hrefElements = x.href.split('/');
+            if (hrefElements.length > 1) {
+                let entityType = hrefElements[hrefElements.length - 3];
+                if (entityType === 'author') {
+                    let idStr = hrefElements[hrefElements.length - 2];
+                    let id = parseInt(idStr);
+                    if (!isNaN(id)) {
+                        if (fiends.includes(id)) {
+                            let childOfParent = x.closest(childOfElementTohide);
+                            if (childOfParent) {
+                                let parentDiv = childOfParent.parentNode.closest(elemToHide);
+                                if (parentDiv) {
+                                    parentDiv.style.display = 'none';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+}
+
 
