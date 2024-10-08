@@ -1,18 +1,19 @@
+
 const launchObserver = (fiends,fiendNames) => {
     const observer = new MutationObserver((mutations) => {
         filterFiends(fiends, 'a.user', 'div.event')
         filterFiends(fiends, 'a.author', 'div.comment');
         filterChallenges(fiends, 'a', 'div.segment','div');
-        filterFiendsByName(fiendNames)
+        filterFiendsByName(fiendNames);
     });
     observer.observe(document, { childList: true, subtree: true, childList: true });
 };
 
 
-getFiendsList();
+let fiendsInfos = getFiendsList();
 
 const init = (fiends, fiendNames) => {
-    filterFiends(fiends, 'a.user', 'div.event')
+    filterFiends(fiends, 'a.user', 'div.event',true)
     filterFiends(fiends, 'a.author', 'div.comment');
     filterFiendsByName(fiendNames)
     filterChallenges(fiends, 'a', 'div.segment','div');
@@ -41,7 +42,7 @@ function getFiendsList() {
     });
 }
 
-function filterFiends(fiends, elemToFind, elemToHide) {
+function filterFiends(fiends, elemToFind, elemToHide,checkName) {
     const elementList = content.querySelectorAll(elemToFind)
     elementList
         .forEach((x) => {
@@ -52,7 +53,14 @@ function filterFiends(fiends, elemToFind, elemToHide) {
                 if (!isNaN(id)) {
                     if (fiends.includes(id)) {
                         let parentDiv = x.closest(elemToHide);
-                        if (parentDiv) {
+                        if (parentDiv &&  parentDiv.style.display === 'none') {
+                            if(checkName){
+                                let authorsName = x.innerHTML;
+                                if(authorsName !== '' && !fiendNames.includes(authorsName)){
+                                    fiendsInfos.push(`${id};${authorsName}`);
+                                    chrome.storage.sync.set({ "adaFiends": JSON.stringify(fiendsInfos) });
+                                }
+                            }
                             parentDiv.style.display = 'none';
                         }
                     }

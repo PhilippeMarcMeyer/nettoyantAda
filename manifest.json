@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "NettoyantAda",
-  "version": "1.0",
+  "version": "1.1",
 
-  "description": "Nettoyant Ada, pour masquer les spamers",
+  "description": "Nettoyant Ada, pour masquer les spammeurs",
   
   "icons": {
     "48": "icons/ada-48.png",
