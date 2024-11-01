@@ -13,7 +13,7 @@ const launchObserver = (fiends,fiendNames) => {
 let fiendsInfos = getFiendsList();
 
 const init = (fiends, fiendNames) => {
-    filterFiends(fiends, 'a.user', 'div.event',true)
+    filterFiends(fiends, 'a.user', 'div.event')
     filterFiends(fiends, 'a.author', 'div.comment');
     filterFiendsByName(fiendNames)
     filterChallenges(fiends, 'a', 'div.segment','div');
@@ -42,7 +42,7 @@ function getFiendsList() {
     });
 }
 
-function filterFiends(fiends, elemToFind, elemToHide,checkName) {
+function filterFiends(fiends, elemToFind, elemToHide) {
     const elementList = content.querySelectorAll(elemToFind)
     elementList
         .forEach((x) => {
@@ -53,15 +53,10 @@ function filterFiends(fiends, elemToFind, elemToHide,checkName) {
                 if (!isNaN(id)) {
                     if (fiends.includes(id)) {
                         let parentDiv = x.closest(elemToHide);
-                        if (parentDiv &&  parentDiv.style.display === 'none') {
-                            if(checkName){
-                                let authorsName = x.innerHTML;
-                                if(authorsName !== '' && !fiendNames.includes(authorsName)){
-                                    fiendsInfos.push(`${id};${authorsName}`);
-                                    chrome.storage.sync.set({ "adaFiends": JSON.stringify(fiendsInfos) });
-                                }
+                        if (parentDiv) {
+                            if(parentDiv.style.display !== 'none'){
+                                parentDiv.style.display = 'none';
                             }
-                            parentDiv.style.display = 'none';
                         }
                     }
                 }
@@ -79,6 +74,9 @@ function filterFiendsByName(fiends) {
                 let parentDiv = x.closest('div.card');
                 if (parentDiv) {
                     parentDiv.style.display = 'none';
+                    for (let item of parentDiv.children) { // for mobile
+                        item.style.display = 'none';
+                    }
                 }
             }
         });
